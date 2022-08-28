@@ -1,0 +1,24 @@
+ul {
+  display: block;
+  width: 80%;
+  border: 1px solid black;
+  padding: 0;
+}
+li {
+  list-style: none;
+  background: white;
+  padding: 1rem;
+  margin: 0.3rem;
+}
+h4 {
+  margin: 0;
+}
+.oddRow {
+  background-color: lightcyan;
+}
+
+.divider {
+  height: 1px;
+  background: lightgray;
+  width: 100%;
+}
