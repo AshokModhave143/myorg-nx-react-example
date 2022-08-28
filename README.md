@@ -1,5 +1,3 @@
-
-
 # MyorgNxReactExample
 
 This project was generated using [Nx](https://nx.dev).
@@ -59,6 +57,16 @@ Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new
 
 Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Run application
+
+### Front end
+
+Run `nx serve todos`
+
+### Backedn
+
+Run `nx serve api`
+
 ## Running unit tests
 
 Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
@@ -79,13 +87,9 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
 
-
-
 ## ☁ Nx Cloud
 
 ### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
 
 Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
 
