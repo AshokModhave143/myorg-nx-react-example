@@ -27,6 +27,8 @@ export function AddTodo(props: AddTodoProps) {
     }
   };
 
+  const isFieldError = () => err !== '';
+
   return (
     <div>
       <div className={styles['container']}>
@@ -35,12 +37,14 @@ export function AddTodo(props: AddTodoProps) {
           id="title"
           value={title}
           onChange={(e: any) => setTitle(e.target.value)}
+          isError={isFieldError()}
         />
         <InputField
           label={'Description'}
           id="description"
           value={description}
           onChange={(e: any) => setDescripton(e.target.value)}
+          isError={isFieldError()}
         />
 
         <button name="addTodo" onClick={handleOnAddTodo}>
@@ -57,16 +61,23 @@ const InputField = ({
   value,
   id,
   onChange,
+  isError = false,
 }: {
   label: string;
   value: string;
   id: string;
   onChange: any;
+  isError?: boolean;
 }) => {
   return (
     <div>
       <label>{label}</label>
-      <input type="text" value={value} onChange={onChange} />
+      <input
+        type="text"
+        value={value}
+        onChange={onChange}
+        className={isError ? styles['inputError'] : ''}
+      />
     </div>
   );
 };
