@@ -1,23 +1,28 @@
 import styles from './todos.module.scss';
 import { Todo } from '@myorg-nx-react-example/data';
+import TodoCard from '../todo-card/todo-card';
 
-/* eslint-disable-next-line */
 export interface TodosProps {
   todos: Todo[];
+  onDeleteTodo?: (todo: Todo) => void;
 }
 
 export const TodosList = (props: TodosProps) => {
+  if (!props.todos.length) {
+    return (
+      <div className={styles['noitems']}>No TODO today. Add it quickly.</div>
+    );
+  }
   return (
     <ul>
       {props.todos.map((item, index) => (
-        <div key={`todo-item-${index}`}>
-          <li className={index % 2 === 0 ? styles['oddRow'] : ''}>
-            <h4>{item.title}</h4>
-            <p>{item.description}</p>
-          </li>
-
-          <div className={styles['divider']} />
-        </div>
+        <li>
+          <TodoCard
+            todo={item}
+            itemIndex={index}
+            onDeleteTodo={props.onDeleteTodo}
+          />
+        </li>
       ))}
     </ul>
   );

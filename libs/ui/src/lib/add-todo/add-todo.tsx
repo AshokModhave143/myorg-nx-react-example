@@ -20,7 +20,7 @@ export function AddTodo(props: AddTodoProps) {
 
   const handleOnAddTodo = () => {
     if (title && description) {
-      props.onAddTodo({ title, description });
+      props.onAddTodo({ id: 0, title, description });
       resetFields();
     } else {
       setErr('Please enter title or description');

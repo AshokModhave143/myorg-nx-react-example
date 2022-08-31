@@ -24,7 +24,10 @@ export function addTodoRoutes(app: Express) {
   });
 
   app.post('/api/addTodo', (req, resp) => {
-    const newTodo = { id: Math.floor(Math.random() * 100 + 1), ...req.body };
+    const newTodo: Todo = {
+      id: Math.floor(Math.random() * 100 + 1),
+      ...req.body,
+    };
     resp.send(newTodo);
   });
 }

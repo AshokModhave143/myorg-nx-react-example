@@ -1,26 +1,22 @@
 ul {
   display: block;
-  border: 1px solid black;
   padding: 0;
 }
 li {
   list-style: none;
-  background: white;
-  padding: 1rem;
-  margin: 0.3rem;
-  border-radius: 12px;
-  border: 1px solid lightgray;
-  box-shadow: 1px 1px 3px darkgray;
-}
-h4 {
-  margin: 0;
-}
-.oddRow {
-  background-color: darkorange;
+  margin: 1rem 0.3rem;
 }
 
 .divider {
   height: 1px;
   background: lightgray;
   width: 100%;
+}
+
+.noitems {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: orange;
 }

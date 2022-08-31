@@ -23,7 +23,18 @@ export function App() {
       .then((data) => setTodos([...todos, data]));
   };
 
-  return <TodosComponent todos={todos} onAddTodo={handleAddTodo} />;
+  const handleDeleteTodo = (todo: Todo) => {
+    const newTodos = todos.filter((v) => v.id !== todo.id);
+    setTodos(newTodos);
+  };
+
+  return (
+    <TodosComponent
+      todos={todos}
+      onAddTodo={handleAddTodo}
+      onDeleteTodo={handleDeleteTodo}
+    />
+  );
 }
 
 export default App;
