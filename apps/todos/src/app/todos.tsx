@@ -10,10 +10,9 @@ export type TodosProps = {
 
 export const TodosComponent: React.FC<TodosProps> = (props: TodosProps) => {
   return (
-    <div>
-      <h1>Todos</h1>
+    <React.Fragment>
       <AddTodo onAddTodo={props.onAddTodo} />
       <TodosList todos={props.todos} onDeleteTodo={props.onDeleteTodo} />
-    </div>
+    </React.Fragment>
   );
 };

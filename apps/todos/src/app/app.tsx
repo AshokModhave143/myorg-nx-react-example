@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useEffect, useState } from 'react';
 import './app.module.scss';
 import { TodosComponent } from './todos';
