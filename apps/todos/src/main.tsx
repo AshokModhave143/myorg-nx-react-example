@@ -12,11 +12,15 @@ import App from './app/app';
 import MainPageLayout from './app/main-page-layout/MainPageLayout';
 import { theme } from './theme';
 
+import { BrowserRouter } from 'react-router-dom';
+
 function MainApp() {
   return (
     <ThemeProvider theme={theme}>
       <MainPageLayout>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
         <CssBaseline />
       </MainPageLayout>
     </ThemeProvider>

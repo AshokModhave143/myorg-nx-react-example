@@ -3,9 +3,11 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
-    "data": "libs/data",
     "todos": "apps/todos",
+    "todos-data-access": "libs/todos/data-access",
     "todos-e2e": "apps/todos-e2e",
-    "ui": "libs/ui"
+    "todos-feature": "libs/todos/feature",
+    "todos-shared-models": "libs/todos/shared-models",
+    "todos-ui": "libs/todos/ui"
   }
 }

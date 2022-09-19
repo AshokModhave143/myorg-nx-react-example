@@ -15,8 +15,19 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@myorg-nx-react-example/data": ["libs/data/src/index.ts"],
-      "@myorg-nx-react-example/ui": ["libs/ui/src/index.ts"]
+      "@myorg-nx-react-example/libs-todos-data-access": [
+        "libs/libs/todos/data-access/src/index.ts"
+      ],
+      "@myorg-nx-react-example/todos-shared-models": [
+        "libs/todos/shared-models/src/index.ts"
+      ],
+      "@myorg-nx-react-example/todos-ui": ["libs/todos/ui/src/index.ts"],
+      "@myorg-nx-react-example/todos/data-access": [
+        "libs/todos/data-access/src/index.ts"
+      ],
+      "@myorg-nx-react-example/todos/feature": [
+        "libs/todos/feature/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
