@@ -5,25 +5,39 @@ import '@fontsource/roboto/700.css';
 
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
-import { StrictMode } from 'react';
+import { StrictMode, useState } from 'react';
 import * as ReactDOM from 'react-dom/client';
 
 import App from './app/app';
-import MainPageLayout from './app/main-page-layout/MainPageLayout';
-import { theme } from './theme';
+import { ThemeContext, getTheme, ThemeType } from './theme';
 
 import { BrowserRouter } from 'react-router-dom';
+import React from 'react';
 
 function MainApp() {
+  const [mode, setMode] = useState<ThemeType>('light');
+
+  const colorMode = React.useMemo(
+    () => ({
+      themeName: mode,
+      toggleTheme: () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      },
+    }),
+    []
+  );
+
+  const theme = React.useMemo(() => getTheme(mode), [mode]);
+
   return (
-    <ThemeProvider theme={theme}>
-      <MainPageLayout>
+    <ThemeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <App />
+          <App toggleTheme={() => colorMode.toggleTheme()} />
         </BrowserRouter>
         <CssBaseline />
-      </MainPageLayout>
-    </ThemeProvider>
+      </ThemeProvider>
+    </ThemeContext.Provider>
   );
 }
 

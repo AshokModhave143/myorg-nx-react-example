@@ -10,15 +10,19 @@ import {
   InputAdornment,
   Menu,
   MenuItem,
+  Switch,
+  FormControlLabel,
 } from '@mui/material';
 import { useState } from 'react';
+import { ThemeContext } from '../../theme';
 
 /* eslint-disable-next-line */
 export interface MainPageLayoutProps {
   children: React.ReactNode;
+  toggleTheme?: () => void;
 }
 
-export function MainPageLayout({ children }: MainPageLayoutProps) {
+export function MainPageLayout({ children, toggleTheme }: MainPageLayoutProps) {
   const [auth, setAuth] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -63,6 +67,7 @@ export function MainPageLayout({ children }: MainPageLayoutProps) {
                   ),
                 }}
               />
+              <ThemeTogglerButton />
               {auth ? (
                 <div>
                   <IconButton
@@ -109,5 +114,19 @@ export function MainPageLayout({ children }: MainPageLayoutProps) {
     </Box>
   );
 }
+
+const ThemeTogglerButton = () => {
+  return (
+    <ThemeContext.Consumer>
+      {({ themeName, toggleTheme }) => (
+        <FormControlLabel
+          control={<Switch onChange={toggleTheme} value={themeName} />}
+          label={themeName}
+          sx={{ ml: 2 }}
+        />
+      )}
+    </ThemeContext.Consumer>
+  );
+};
 
 export default MainPageLayout;
