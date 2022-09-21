@@ -1,4 +1,4 @@
-import { Button, Grid, Paper } from '@mui/material';
+import { Button, FormLabel, Grid, Paper, Typography } from '@mui/material';
 import { InputField } from '@myorg-nx-react-example/todos-ui';
 import React from 'react';
 import { ITodo } from '@myorg-nx-react-example/todos-shared-models';
@@ -40,17 +40,30 @@ export function AddTodo(props: AddTodoProps) {
     <Paper sx={{ m: 2 }}>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit, onSubmitError)}>
-          <Grid container alignSelf={'center'} paddingY={2}>
-            <Grid item sx={{ mr: 2, ml: 2 }}>
+          <Grid
+            container
+            direction="row"
+            alignItems="center"
+            justifyContent="flex-start"
+            rowSpacing={1}
+            columnSpacing={2}
+            padding={2}
+          >
+            <Grid item xs={12}>
+              <Typography variant="h5" sx={{ fontWeight: '700' }}>
+                Add Todo
+              </Typography>
+            </Grid>
+            <Grid item>
               <ControlledInputField name={'title'} label={'Title'} />
             </Grid>
-            <Grid item sx={{ mr: 2, ml: 2 }}>
+            <Grid item>
               <ControlledInputField
                 name={'description'}
                 label={'Description'}
               />
             </Grid>
-            <Grid item sx={{ mr: 2, ml: 2 }}>
+            <Grid item>
               <Button
                 variant="contained"
                 color="primary"

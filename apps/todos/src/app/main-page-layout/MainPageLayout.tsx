@@ -35,10 +35,10 @@ export function MainPageLayout({ children }: MainPageLayoutProps) {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Container sx={{ flexGrow: 1, height: '100vh' }} maxWidth="lg">
       <nav>
-        <AppBar position="static" color="transparent">
-          <Container maxWidth="xl">
+        <AppBar position="static" color="transparent" sx={{ p: 2 }}>
+          <Box>
             <Toolbar>
               <IconButton
                 size="large"
@@ -106,11 +106,11 @@ export function MainPageLayout({ children }: MainPageLayoutProps) {
                 </Typography>
               )}
             </Toolbar>
-          </Container>
+          </Box>
         </AppBar>
       </nav>
       <main>{children}</main>
-    </Box>
+    </Container>
   );
 }
 

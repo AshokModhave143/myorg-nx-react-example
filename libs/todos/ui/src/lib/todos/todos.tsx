@@ -1,6 +1,7 @@
 import styles from './todos.module.scss';
 import TodoCard from '../todo-card/todo-card';
 import { ITodo } from '@myorg-nx-react-example/todos-shared-models';
+import { Box, Divider, List, ListItem } from '@mui/material';
 
 export interface TodosProps {
   todos: ITodo[];
@@ -14,16 +15,17 @@ export const TodosList = (props: TodosProps) => {
     );
   }
   return (
-    <ul>
-      {props.todos.map((item, index) => (
-        <li>
-          <TodoCard
-            todo={item}
-            itemIndex={index}
-            onDeleteTodo={props.onDeleteTodo}
-          />
-        </li>
-      ))}
-    </ul>
+    <Box>
+      <List disablePadding sx={{ width: '100%', maxWidth: 360 }}>
+        {props.todos.map((item, index) => (
+          <>
+            <ListItem key={item.id} disablePadding>
+              <TodoCard todo={item} onDeleteTodo={props.onDeleteTodo} />
+            </ListItem>
+            <Divider variant="fullWidth" component="li" />
+          </>
+        ))}
+      </List>
+    </Box>
   );
 };
