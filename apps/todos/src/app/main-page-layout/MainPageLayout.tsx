@@ -19,10 +19,9 @@ import { ThemeContext } from '../../theme';
 /* eslint-disable-next-line */
 export interface MainPageLayoutProps {
   children: React.ReactNode;
-  toggleTheme?: () => void;
 }
 
-export function MainPageLayout({ children, toggleTheme }: MainPageLayoutProps) {
+export function MainPageLayout({ children }: MainPageLayoutProps) {
   const [auth, setAuth] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 

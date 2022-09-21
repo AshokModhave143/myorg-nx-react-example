@@ -3,13 +3,12 @@ import React from 'react';
 import './app.module.scss';
 import MainPageLayout from './main-page-layout/MainPageLayout';
 
-export interface AppProps {
-  toggleTheme?: () => void;
-}
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type AppProps = {};
 
-export function App({ toggleTheme }: AppProps) {
+export function App(props: AppProps) {
   return (
-    <MainPageLayout toggleTheme={toggleTheme}>
+    <MainPageLayout>
       <TodosComponent />
     </MainPageLayout>
   );

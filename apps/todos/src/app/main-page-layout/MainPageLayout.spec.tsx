@@ -1,14 +1,25 @@
-import { render } from '@testing-library/react';
+import { render, RenderResult, screen } from '@testing-library/react';
 
 import MainPageLayout from './MainPageLayout';
 
-describe('MainPageLayout', () => {
-  it('should render successfully', () => {
-    const { baseElement } = render(
-      <MainPageLayout>
-        <></>
-      </MainPageLayout>
-    );
-    expect(baseElement).toBeTruthy();
+describe('Given MainPageLayout', () => {
+  describe('When enviornment is valid', () => {
+    let component: RenderResult;
+
+    beforeEach(() => {
+      component = render(
+        <MainPageLayout>
+          <></>
+        </MainPageLayout>
+      );
+    });
+    it('Then component should render successfully', () => {
+      const { baseElement } = component;
+      expect(baseElement).toBeTruthy();
+    });
+
+    it('Then component should have correct title', () => {
+      expect(screen.getByText("Todo's")).toBeDefined();
+    });
   });
 });

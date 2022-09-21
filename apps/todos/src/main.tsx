@@ -33,7 +33,7 @@ function MainApp() {
     <ThemeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <App toggleTheme={() => colorMode.toggleTheme()} />
+          <App />
         </BrowserRouter>
         <CssBaseline />
       </ThemeProvider>
