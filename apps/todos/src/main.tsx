@@ -14,6 +14,11 @@ import { ThemeContext, getTheme, ThemeType } from './theme';
 import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
 
+if (process.env['NODE_ENV'] === 'development') {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  require('./mocks');
+}
+
 function MainApp() {
   const [mode, setMode] = useState<ThemeType>('light');
 

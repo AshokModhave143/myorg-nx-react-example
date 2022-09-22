@@ -2,6 +2,7 @@
 export default {
   displayName: 'todos-data-access',
   preset: '../../../jest.preset.js',
+  setupFilesAfterEnv: ['./jest.setup.ts'],
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
