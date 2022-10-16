@@ -1,10 +1,12 @@
-import { NoteAddRounded } from '@mui/icons-material';
+import { DeleteOutline } from '@mui/icons-material';
 import {
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  ListItemAvatar,
-  Avatar,
+  CardContent,
+  CardHeader,
+  Card,
+  Typography,
+  CardActions,
+  Button,
+  Theme,
 } from '@mui/material';
 import { ITodo } from '@myorg-nx-react-example/todos-shared-models';
 
@@ -15,17 +17,30 @@ export interface TodoCardProps {
 
 export function TodoCard({ todo, onDeleteTodo }: TodoCardProps) {
   return (
-    <ListItem sx={{ background: 'white', border: '1px solid lightgray' }}>
-      <ListItemAvatar>
-        <Avatar>
-          <NoteAddRounded />
-        </Avatar>
-      </ListItemAvatar>
-      <ListItemText primary={todo.title} secondary={todo.description} />
-      <ListItemButton onClick={() => onDeleteTodo && onDeleteTodo(todo)}>
-        X
-      </ListItemButton>
-    </ListItem>
+    <Card sx={{ width: 300 }}>
+      <CardHeader
+        title={todo.title}
+        titleTypographyProps={{ variant: 'body1' }}
+        subheader={null}
+        sx={(theme: Theme) => ({
+          background: theme.palette.primary.main,
+          color: theme.palette.primary.contrastText,
+        })}
+      ></CardHeader>
+      <CardContent>
+        <Typography variant="body2">{todo.description}</Typography>
+      </CardContent>
+      <CardActions>
+        <Button
+          variant="contained"
+          onClick={() => onDeleteTodo && onDeleteTodo(todo)}
+          endIcon={<DeleteOutline />}
+          color="error"
+        >
+          Delete
+        </Button>
+      </CardActions>
+    </Card>
   );
 }
 
