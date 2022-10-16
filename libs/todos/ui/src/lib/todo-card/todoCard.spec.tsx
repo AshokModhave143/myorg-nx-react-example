@@ -1,11 +1,11 @@
 import { ITodo } from '@myorg-nx-react-example/todos-shared-models';
 import { render, screen } from '@testing-library/react';
 
-import TodoCard from './todo-card';
+import TodoCard from './todoCard';
 
 describe('TodoCard', () => {
   it('should render successfully', () => {
-    const todo: ITodo = { id: 1, title: 'title', description: 'description' };
+    const todo: ITodo = { title: 'title', description: 'description' };
     const { baseElement } = render(
       <TodoCard todo={todo} onDeleteTodo={jest.fn()} />
     );

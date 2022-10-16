@@ -3,12 +3,12 @@ import { ITodo } from '@myorg-nx-react-example/todos-shared-models';
 
 export const todos: ITodo[] = [
   {
-    id: 1,
+    _id: 'kahdfn12',
     title: 'Office meeting',
     description: 'Discuss the product requirements',
   },
   {
-    id: 2,
+    _id: 'xjbsijs',
     title: 'stand up meeting kjsbdbfihb',
     description: 'Team catch up for project status',
   },

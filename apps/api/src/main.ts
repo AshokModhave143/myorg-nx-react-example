@@ -1,24 +1,28 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
+import { app } from './app/app';
+import MongoConnection from './app/mongo-connection';
 
-import * as express from 'express';
-import { addTodoRoutes } from './app/todos';
-import * as bodyParser from 'body-parser';
+const mongoConnection = new MongoConnection(process.env.MONGO_URL);
 
-const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(bodyParser.raw());
+if (process.env.MONGO_URL == null) {
+  console.log('MONGO_URL not specified for the enviornment');
+  process.exit(1);
+} else {
+  mongoConnection.connect(() => {
+    app.listen(app.get('port'), (): void => {
+      console.log(
+        `Express server started at http://localhost:${app.get('port')}/api`
+      );
+    });
+  });
+}
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to api!' });
+process.on('SIGINT', () => {
+  console.log('Gracefully shutting down');
+
+  mongoConnection.close((err) => {
+    if (err) {
+      console.log(`Error shutting closing mongo connection: ${err}`);
+    }
+    process.exit(0);
+  });
 });
-addTodoRoutes(app);
-
-const port = process.env.port || 3333;
-const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
-});
-server.on('error', console.error);

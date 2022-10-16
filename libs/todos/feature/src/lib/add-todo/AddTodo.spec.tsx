@@ -4,7 +4,7 @@ import AddTodo from './AddTodo';
 
 describe('AddTodo', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<AddTodo />);
+    const { baseElement } = render(<AddTodo onAdd={jest.fn()} />);
     expect(baseElement).toBeTruthy();
   });
 });

@@ -28,9 +28,7 @@
       "@myorg-nx-react-example/todos/feature": [
         "libs/todos/feature/src/index.ts"
       ]
-    },
-    "resolveJsonModule": true,
-    "composite": true
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

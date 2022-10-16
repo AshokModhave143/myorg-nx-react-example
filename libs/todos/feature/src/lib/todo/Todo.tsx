@@ -1,5 +1,9 @@
 import { ITodo } from '@myorg-nx-react-example/todos-shared-models';
-import { addTodo, getTodos } from '@myorg-nx-react-example/todos/data-access';
+import {
+  addTodo,
+  getTodos,
+  deleteTodo,
+} from '@myorg-nx-react-example/todos/data-access';
 import React, { useEffect, useState } from 'react';
 import { AddTodo, TodoList } from '../../index';
 
@@ -18,7 +22,7 @@ export const TodosComponent: React.FC<TodosProps> = (props: TodosProps) => {
   };
 
   const handleDeleteToDo = (todo: ITodo) => {
-    setTodos(todos.filter((x) => x.id !== todo.id));
+    deleteTodo(todo).then((data: ITodo) => setTodos([...todos, data]));
   };
 
   return (

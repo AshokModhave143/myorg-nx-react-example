@@ -1,4 +1,4 @@
-import { Button, FormLabel, Grid, Paper, Typography } from '@mui/material';
+import { Button, Grid, Paper, Typography } from '@mui/material';
 import { InputField } from '@myorg-nx-react-example/todos-ui';
 import React from 'react';
 import { ITodo } from '@myorg-nx-react-example/todos-shared-models';
@@ -30,7 +30,7 @@ export function AddTodo(props: AddTodoProps) {
   });
 
   const onSubmit = (data: TodoFormData) => {
-    props.onAdd({ id: 0, ...data });
+    props.onAdd({ ...data });
     methods.reset();
   };
 
